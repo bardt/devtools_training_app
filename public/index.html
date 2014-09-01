@@ -1,0 +1,42 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Chrome Dev Tools Training</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="wrapper">
+    <nav class="navigation">
+        <ul class="navlist">
+            <li class="navList__item"><a href="#">Main</a></li>
+            <li class="navList__item"><a href="#">About</a></li>
+            <li class="navList__item"><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <header id="pageHeader" class="header">
+            <h1 id="pageHeaderText">My awesome TODO</h1>
+        </header>
+
+        <div class="todo__wrapper">
+            <div class="todo__container">
+                <form id="createTodoForm" class="createTodo__container">
+                    <input class="createTodo__input" type="text" placeholder="Type todo here...">
+                </form>
+                <ul id="todoList" class="todoList">
+                    <li class="todoList__item"><input class="todoList__itemToggle" type="checkbox" >Item 1<div class="todoList__itemClose"></div></li>
+                    <li class="todoList__item"><input class="todoList__itemToggle" type="checkbox">Item 2<div class="todoList__itemClose"></div></li>
+                    <li class="todoList__item"><input class="todoList__itemToggle" type="checkbox">Item 3<div class="todoList__itemClose"></div></li>
+                </ul>
+
+                <button id="restart" class="todo__restartButton">Strat from scratch</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

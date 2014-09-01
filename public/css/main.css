@@ -1,0 +1,172 @@
+html, body {
+    max-height: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    background: grey;
+    position: relative;
+}
+
+.navigation {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    background: rgb(249, 249, 249) url(../img/noisy-texture-150x100-o7.000000000000001-d10-c-ebebeb-t0.png);
+    box-shadow: -6px 0px 30px -6px grey inset;
+}
+
+.navList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navList__item {
+    padding: 1em;
+    text-align: center;
+}
+
+.navList__item>a,
+.navList__item>a:focus,
+.navList__item>a:active,
+.navList__item>a:hover {
+    text-decoration: none;
+    color:white;
+    text-shadow: -1px -1px 1px rgba(0,0,0, .7);
+}
+
+.navList__item>a:hover {
+    text-shadow: -1px -1px 5px rgba(0,0,0, .7);
+}
+
+.content {
+    padding-left: 150px;
+    min-height: 200%;
+    background: white;
+}
+
+.header {
+    background: darkgrey url(http://placekitten.com/g/1920/768) center no-repeat;
+    background-size: cover;
+    min-height: 300px;
+    position: relative;
+    font-size: 52px;
+    overflow: hidden;
+}
+
+.header h1 {
+    position: absolute;
+    top: 50%;
+    display: block;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    margin: -0.5em 0 0 0;
+    text-shadow: 0 0 10px rgba(0,0,0, .7);
+    font-size: 100%;
+    white-space: nowrap;
+}
+
+.todo__wrapper {
+    width: 60%;
+    margin: 2em auto;
+}
+
+.todo__container {
+    width: 100%;
+    font-size:  26px;
+    border: 1px solid grey;
+    border-radius: .4em;
+    box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.4);
+}
+
+.createTodo__container {
+    width: 100%;
+    margin: 0;
+    background:  transparent;
+}
+
+.createTodo__input {
+    width: 100%;
+    font-size:  26px;
+    padding: .4em .4em .4em 1.5em;
+    border: 0;
+    border-bottom: 1px solid grey;
+    background: transparent;
+}
+
+.createTodo__input:focus {
+    outline: none;
+}
+
+.todoList {
+    list-style: none;
+    padding: 0;
+    margin:  0;
+}
+
+.todoList__item {
+    padding: .4em .4em .4em 1.5em;
+    border-bottom: 1px solid grey;
+    position: relative;
+}
+
+.todoList__itemToggle {
+    position: absolute;
+    top: 1.7em;
+    left: 1.2em;
+}
+
+.todoList__itemClose {
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    right: 0.6em;
+    top: 0.6em;
+    cursor: pointer;
+}
+
+.todoList__itemClose:before {
+    content: 'x';
+    display: block;
+    margin-top: -0.3em;
+    margin-left: 0.3em;
+}
+
+.todo__restartButton {
+    display: block;
+    border: none;
+    background: transparent;
+    font-size: 26px;
+    color: red;
+    text-align: center;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+@media (max-width: 690px) {
+    .navigation {
+        position: static;
+        width: auto;
+    }
+
+    .navList__item {
+        display: inline-block;
+    }
+
+    .content {
+        padding-left: 0;
+    }
+}
