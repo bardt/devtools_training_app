@@ -87,7 +87,7 @@ $(function() {
     }
 
     function addTodoToList(todo) {
-        var newItem = $('<li class="todoList__item"><input class="todoList__itemToggle" type="checkbox">' + todo.text + '<div class="todoList__itemClose"></div></li>');
+        var newItem = $('<li class="todoList__item"><label><input class="todoList__itemToggle" type="checkbox">' + todo.text + '</label><div class="todoList__itemClose"></div></li>');
 
         $('#todoList').prepend(newItem);
         newItem.attr('data-md5', MD5(newItem.html()));
