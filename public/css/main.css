@@ -106,11 +106,40 @@ body {
     border-bottom: 1px solid #ccc;
     background: transparent;
     background-color: #fefefe;
+    color: #222;
 }
 
 .createTodo__input:focus {
     outline: none;
 }
+    .createTodo__input::-webkit-input-placeholder { /* WebKit browsers */
+        color: #999;
+    }
+    .createTodo__input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: #999;
+        opacity: 1;
+    }
+    .createTodo__input:-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: #999;
+        opacity: 1;
+    }
+    .createTodo__input:-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: #999;
+    }
+    .createTodo__input:focus::-webkit-input-placeholder { /* WebKit browsers */
+        color: #ccc;
+    }
+    .createTodo__input:focus:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: #ccc;
+        opacity: 1;
+    }
+    .createTodo__input:focus::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: #ccc;
+        opacity: 1;
+    }
+    .createTodo__input:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: #ccc;
+    }
 
 .todoList {
     list-style: none;
@@ -183,3 +212,4 @@ body {
         padding-left: 0;
     }
 }
+
