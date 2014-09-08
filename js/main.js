@@ -5,10 +5,16 @@ $(function() {
 
     function updateHeaderPosition() {
         var headerHeight = $('#pageHeader').outerHeight();
+        var headerOffset = getHeaderOffset();
 
-        $('#pageHeaderText').css({
-            top: headerHeight/2 - (getHeaderOffset() / 2)
+        var textWidth = 0;
+        $('.letter').each(function() {
+            textWidth += $(this).outerWidth();
         });
+
+        var textPadding = $('.letter').css('padding-left');
+        textPadding = textPadding ? textPadding.replace(/[^-\d\.]/g, '') : 0;
+        var destPadding = headerOffset / 10;
 
         // Animate letters
         if (!$('#pageHeaderText').hasClass('letters')) {
@@ -22,26 +28,13 @@ $(function() {
         }
         $('#pageHeaderText > span').addClass('letter');
 
-        $('.letter').animate({
-            paddingLeft: getHeaderOffset() / 10,
-            paddingRight: getHeaderOffset() / 10
-        }, 0, function() {
-            var textWidth = 0;
-            var headerWidth = $('#pageHeader').outerWidth();
+        $('#pageHeaderText').css({
+            top: headerHeight/2 - (headerOffset / 2),
+        });
 
-            $('.letter').each(function() {
-                textWidth += $(this).outerWidth();
-            });
-
-            if (textWidth >= headerWidth) {
-                $('#pageHeaderText').css({
-                    left: - (textWidth-headerWidth) / 2
-                });
-            } else {
-                $('#pageHeaderText').css({
-                    left: 0
-                });
-            }
+        $('.letter').css({
+            paddingLeft: destPadding,
+            paddingRight: destPadding
         });
 
     }

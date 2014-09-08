@@ -69,14 +69,15 @@ body {
     position: absolute;
     top: 50%;
     display: block;
-    left: 0;
-    right: 0;
     text-align: center;
     color: white;
     margin: -0.5em 0 0 0;
     text-shadow: 0 0 10px rgba(0,0,0, .7);
     font-size: 100%;
     white-space: nowrap;
+
+    left: -9000;
+    right: -9000;
 }
 
 .todo__wrapper {
