@@ -91,6 +91,9 @@ $(function() {
         var closeEvent = getCloseEvent(newItem);
         closeButton.on('click', closeEvent);
     }
+
+    addTodoToList({ text: 'Prepare the slides'});
+    addTodoToList({ text: 'Feed a cat'});
 });
 
 // Symulate AJAX request
