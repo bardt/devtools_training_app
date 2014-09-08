@@ -52,8 +52,6 @@ $(function() {
             done: false
         };
 
-        addTodoToList(newTodo);
-
         createTodo(newTodo, addTodoToList);
     });
 
