@@ -53,20 +53,15 @@ $(function() {
         e.preventDefault();
 
         var value = $('#createTodoForm').find('.createTodo__input').val();
-        addTodoToList({ text: value });
 
-        $.ajax({
-            type: 'POST',
-            url: '/todo',
-            data: {
-                todo: {
-                    text: value,
-                    done: false
-                }
-            },
-            success: addTodoToList,
-            dataType: 'json'
-        });
+        var newTodo = {
+            text: value,
+            done: false
+        };
+
+        addTodoToList(newTodo);
+
+        createTodo(newTodo, addTodoToList);
     });
 
     $('#restart').click(function() {
@@ -96,18 +91,14 @@ $(function() {
         var closeEvent = getCloseEvent(newItem);
         closeButton.on('click', closeEvent);
     }
-
-    $.ajax({
-        type: 'GET',
-        url: '/todo',
-        success: function(todos) {
-            $.each(todos, function(todo) {
-                addTodoToList(todo);
-            });
-        },
-        dataType: 'json'
-    });
 });
+
+// Symulate AJAX request
+function createTodo(todo, callback) {
+    setTimeout(function() {
+        callback(todo);
+    }, 300);
+}
 
 function MD5(string) {
     function RotateLeft(lValue, iShiftBits) {
