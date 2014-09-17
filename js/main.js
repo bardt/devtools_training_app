@@ -53,27 +53,16 @@ $(function() {
         list.innerHTML = '';
     });
 
-    var deletedItems = [];
-    var closeEvents = [];
-
-    function getCloseEvent(element) {
-        function onclose() {
-            deletedItems.push(element[0]);
-            element.remove();
-        }
-        closeEvents.push(onclose);
-        return onclose;
-    }
-
     function addTodoToList(todo) {
         var newItem = $('<li class="todoList__item"><label><input class="todoList__itemToggle" type="checkbox">' + todo.text + '</label><div class="todoList__itemClose"></div></li>');
 
         $('#todoList').prepend(newItem);
         newItem.attr('data-md5', MD5(newItem.html()));
 
-        var closeButton = newItem.find('.todoList__itemClose');
-        var closeEvent = getCloseEvent(newItem);
-        closeButton.on('click', closeEvent);
+        // var closeButton = newItem.find('.todoList__itemClose');
+        newItem.find('.todoList__itemClose').on('click', function() {
+            newItem.remove();
+        });
     }
 
     addTodoToList({ text: 'Prepare the slides'});
