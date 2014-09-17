@@ -1,19 +1,12 @@
 $(function() {
     function getHeaderOffset() {
-        return -$('#pageHeader').offset().top + $(window).scrollTop();
+        return $(window).scrollTop() - $('#pageHeader').offset().top;
     }
 
     function updateHeaderPosition() {
         var headerHeight = $('#pageHeader').outerHeight();
         var headerOffset = getHeaderOffset();
 
-        var textWidth = 0;
-        $('.letter').each(function() {
-            textWidth += $(this).outerWidth();
-        });
-
-        var textPadding = $('.letter').css('padding-left');
-        textPadding = textPadding ? textPadding.replace(/[^-\d\.]/g, '') : 0;
         var destPadding = headerOffset / 10;
 
         // Animate letters
@@ -22,21 +15,21 @@ $(function() {
             $('#pageHeaderText').empty();
 
             for (var i=0; i < text.length; i++) {
-                $('#pageHeaderText').append('<span>' + text[i] + '</span>');
+                $('#pageHeaderText').append('<span class="letter">' + text[i] + '</span>');
             }
             $('#pageHeaderText').addClass('letters');
         }
-        $('#pageHeaderText > span').addClass('letter');
+
+        setTimeout(function() {
+            $('.letter').css({
+                paddingLeft: destPadding,
+                paddingRight: destPadding
+            });
+        }, 0);
 
         $('#pageHeaderText').css({
-            top: headerHeight/2 - (headerOffset / 2),
+            top: headerHeight/2 - (headerOffset / 2)
         });
-
-        $('.letter').css({
-            paddingLeft: destPadding,
-            paddingRight: destPadding
-        });
-
     }
 
     $(window).scroll(updateHeaderPosition);
